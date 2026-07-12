@@ -9,7 +9,7 @@ def length_stats(text: str) -> tuple[pd.Series, pd.Series]:
 
     words = sorted(set(text.split()))
     s = pd.Series(map(len, words), index=words)
-    return s[s % 2 == 0], s[s % 2 != 0]
+    return s.loc[s % 2 != 0], s.loc[s % 2 == 0]
 
 even, odd = length_stats('Мама мыла раму')
 print(even)
