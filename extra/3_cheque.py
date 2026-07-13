@@ -2,14 +2,17 @@ import pandas as pd
 
 
 def cheque(price_list: pd.Series, **products: int) -> pd.DataFrame:
-    df = price_list.sort_index().rename_axis("product").to_frame(name="price")
-    for name, number in products.items():
-        df.loc[name, "number"] = number
-        df.loc[name, "cost"] = number * df.loc[name, "price"]
-    
-    df = df.dropna()
-    df[["number", "cost"]] = df[["number", "cost"]].astype("int64")
-    return df.reset_index(drop=False)
+    quantities = pd.Series(products, name="number")
+
+    df = (
+        price_list.rename("price")
+        .to_frame()
+        .join(quantities, how="inner")
+        .sort_index()
+    )
+
+    df["cost"] = df["price"] * df["number"]
+    return df.rename_axis("product").reset_index()
 
 
 products = ['bread', 'milk', 'soda', 'cream']
