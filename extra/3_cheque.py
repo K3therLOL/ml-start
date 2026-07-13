@@ -17,4 +17,3 @@ prices = [37, 58, 99, 72]
 price_list = pd.Series(prices, products)
 result = cheque(price_list, soda=3, milk=2, cream=1)
 print(result)
-
