@@ -8,5 +8,5 @@ This dataset was selected as it provides a multivariate representation of *eatin
 1. Logistic Regression will perform worse than a Decision Tree because of SCC class disbalance.
 2. F1-macro will be noticeably lower than accuracy for both Logistic Regression and Decision Tree due to class imbalance (especially Insufficient_Weight and Obesity_Type_III).
 3. Weight and Height will be the most important features according to the feature importance of the Decision Tree.
-4. When the maximum depth of the Decision Tree exceeds 8, overfitting will occur: train accuracy will increase while test accuracy will decrease.
+4. Removing outliers (values beyond 1.5 × IQR) from Age, Weight, and NCP will improve the F1-macro score of both Logistic Regression and Decision Tree compared to using the original data with outliers.
 5. Applying L1 regularization (Lasso) to Logistic Regression will improve F1-macro compared to the unregularized Logistic Regression by reducing the influence of less important features.
