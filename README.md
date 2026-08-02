@@ -5,7 +5,7 @@ This dataset was selected as it provides a multivariate representation of *eatin
 
 ## Hypotheses
 
-1. Logistic Regression will perform worse than a Decision Tree because of SCC class disbalance.
+1. Decision Tree will outperform Logistic Regression, because the boundaries between adjacent obesity classes (Normal_Weight, Overweight_Level_I, Overweight_Level_II) depend on non-linear interactions between features like Weight, Height, and lifestyle variable
 2. F1-macro will be noticeably lower than accuracy for both Logistic Regression and Decision Tree due to class imbalance (especially Insufficient_Weight and Obesity_Type_III).
 3. Weight and Height will be the most important features according to the feature importance of the Decision Tree.
 4. Removing outliers (values beyond 1.5 × IQR) from Age, Weight, and NCP will improve the F1-macro score of both Logistic Regression and Decision Tree compared to using the original data with outliers.
